@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 函数表达式 
+    // 功能：让我们听到所有好的声音
+    //js 严格模式 激发一下es6 
+    'use strict';
+
+    var makeSound = function(animal) {
+      // 鸭子 
+      if (animal instanceof Duck) {
+        console.log('嘎嘎嘎');
+      } else if (animal instanceof Dog) {
+        console.log('汪汪汪');
+      } else if (animal instanceof Tiger) {
+        alert('aowu');
+      }
+    }
+    // es5 语法 没有class 关键字 
+    // 构建类：函数是一等公民对象 object的一种
+    // 对象
+    function Duck() {
+      // 构造函数 new 时自动执行
+      console.log('实例化了一只鸭子')
+    }
+
+    // es6语法里 class 关键字
+    // ie10+  babel 解决这个问题
+    // 面向对象 封装
+    class Dog {
+      constructor () {
+        console.log('实例化了一条狗');
+      }
+    }
+
+    class Tiger {
+      constructor () {
+        console.log('构造函数一只老虎');
+      }
+    } 
+
+    // function 
+    // 1 来new一自鸭子Duck类构造 嘎嘎嘎
+    // 2 来一自小狗 汪汪汪
+    let tly = new Duck();
+    makeSound(tly);
+    let xb = new Dog();
+    makeSound(xb);
+    let tth = new Tiger();
+    makeSound(tth); 
+    
+  </script>
+</body>
+</html>

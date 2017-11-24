@@ -7,6 +7,37 @@
   <title>Document</title>
 </head>
 <body>
-  
+  https://juejin.im/post/5a08e5c55188252abc5dd96f
+  带一下
+  <a href="javascript:;" data-index="0" class="btn">按钮0</a>
+  <a href="javascript:;" data-index="1" class="btn">按钮1</a>
+  <a href="javascript:;" data-index="2" class="btn">按钮2</a>
+  <a href="javascript:;" data-index="3" class="btn">按钮3</a>
+  <a href="javascript:;" data-index="4" class="btn">按钮4</a>
+  <a href="javascript:;" data-index="5" class="btn">按钮5</a>
+  <a href="javascript:;" data-index="6" class="btn">按钮6</a>
+  <a href="javascript:;" data-index="7" class="btn">按钮7</a>
+  <a href="javascript:;" data-index="8" class="btn">按钮8</a>
+  <a href="javascript:;" data-index="9" class="btn">按钮9</a>
+  <script>
+    var btns = document.querySelectorAll('.btn');
+    // for (var i = 0; i < btns.length; i++) {
+    //   btns[i].addEventListener('click', function(){
+    //     alert(i);
+    //   }, false);
+    // }
+
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function(){
+        alert(i);
+      }, false);
+    }
+
+    const newBtns = Array.from(btns).filter(btn => {
+      return btn.dataset.index % 2 == 0
+      // return btn;
+    });
+    console.log(newBtns);
+  </script>
 </body>
 </html>
