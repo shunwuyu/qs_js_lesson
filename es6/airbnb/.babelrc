@@ -1,0 +1,9 @@
+{
+  //从env 讲到airbnb 
+  "presets": [["airbnb", {
+    "targets": {
+      // "chrome": 50  //let
+      "explorer": 6  // var
+    }
+  }]]
+}
