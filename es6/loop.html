@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <script>
+    var myArr = [1,2,3];
+// for(var index = 0, len = myArr.length; index < len; index++) {
+//   console.log(myArr[index]);
+// }
+
+// // forEach no break return 聊下break return
+// myArr.forEach(function(value) {
+//   console.log(value);
+// });
+
+// 不要用for in 来遍历数组
+// 顺序得不到保障 "0","1","2", 
+// 看出 Array -> object 
+// for(var index in myArr) {
+//   console.log(myArr[index]);
+//   console.log(index + myArr[index]);
+// }
+
+// 强大的for-of 便利数据
+// 最简洁，最直接的遍历数组元素的语法
+// 没有缺限
+// 可以响应break, continue和return语句
+// 不用 myArr[i] 表达更好
+for (let value of myArr) {
+  // if(value == 2) return;
+  console.log(value);
+}
+  // Nodelist for of
+  // const boxes = document.querySelectorAll('.box');
+  // for (let box of boxes) {
+  //   console.log(box);
+  // }
+  //支持字符串遍历
+  // const singer = 'adele';
+  // for (let chr of singer) {
+  //   console.log(chr);
+  // }
+
+  // 自动排除重复项 set 基于数组创建set
+  var words = ['adele', '周杰伦', 'adele'];
+  var uniqueWords = new Set(words);
+  console.log(uniqueWords);
+  // 遍历 set
+  for (let word of uniqueWords) {
+    console.log(word);
+  }
+  // map 由键值对组成
+  var fenfen = {
+    name: "芬芬",
+    sex: "男"
+  }
+  // 不支持  object for in
+  // for (var [key, value]  of fenfen) {
+  //   console.log(`${key}:${value}`);
+  // }
+  // object.keys
+  for (var key of Object.keys(fenfen)) {
+    console.log(key + ':' + fenfen[key]);
+  }
+  // var m = new Map();
+  // m.set('content', fenfen);
+  // console.log(m.content);
+  </script>
+</body>
+</html>
