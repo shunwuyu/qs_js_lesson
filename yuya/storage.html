@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>本地存储</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <br>
+  <form name="userForm" action=""
+   method="GET">
+    <div class="field">
+      <label for="user-name">用户名：</label>
+      <input type="text" name="username" id="user-name"
+      placeholder="请输入用户名"/>
+    </div>
+    <div class="field">
+      <label for="user-college">学校：</label>
+      <input type="text" name="college" id="user-college"
+      placeholder="请输入学校"/>
+    </div>
+    <input type="submit" value="提交"/>
+  </form>
+  <script>
+    var students = [];
+
+    window.onload = function () {
+      students = JSON.parse(localStorage.getItem('students'));
+      renderTable();
+    }
+    var oForm = document.forms['userForm'];
+    oForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var userName = document.getElementById('user-name').value; 
+      var userCollege = document.getElementById('user-college').value;
+      if(!userName && !userCollege) {
+        alert('请输入用户名或学校');
+      }
+      // console.log(userName, userCollege);
+      students.push({name: userName, college: userCollege});
+      localStorage.setItem('students', JSON.stringify(students));
+      renderTable();
+    }, false);
+
+    function renderTable () {
+      var stoStudents = JSON.parse(localStorage.getItem('students'));
+      if (stoStudents.length >= 0) {
+        
+        document.querySelector('tbody').innerHTML = stoStudents.map(student => `
+          <tr>
+            <td>${student.name}</td>
+            <td>${student.college}</td>
+          </tr>
+        `).join('')
+      }
+    }
+  </script>
+</body>
+</html>
