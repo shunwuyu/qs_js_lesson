@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // const user = 'ysw';
+    // // user = '小红';
+    // const arr = [1,2];
+    // arr.push(3);
+    // arr = 'dd'
+    // 不用es6  const ?
+    // 实现私有属性 方法  
+    // 能读取`
+    // var user = 'ysw';
+    // user = '小红';
+    // 不能设置 对象 设置， 让这个变量，跟
+    // 你变量的查找作用域 不会经过
+    //   函数作用域 全局
+    // 读取到它？ 
+    // 立即执行函数
+    // 函数作用域
+    // 外界访问不到里面了？
+     var User = (function(){
+
+      var UPPER_BOUND = 100;
+      // 提供出来？
+      var ctor = function() {
+      }
+      // 静态方法
+      ctor.getUPPER_BOUND = function() {
+        return UPPER_BOUND;
+      }
+
+      return ctor;
+
+     })();
+    console.log(User.getUPPER_BOUND());
+  </script>
+</body>
+</html>
