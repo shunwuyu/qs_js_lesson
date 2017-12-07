@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象字面量</title>
+</head>
+<body>
+  <script>
+    // 浏览器不支持es6 object 新方法
+    // if (typeof Object.create !== 'function') {
+      /*
+       * 原型对象继承
+       * o 原型对象， 类型 Object
+       */
+      // Object.create = function(o) {
+      //   // 类 继承关系
+      //   var F = function() {};
+      //   F.prototype = o;
+      //   // 新鲜出炉的对象
+      //   return new F();
+      // }
+    // }
+    var stooge = {
+      "first-name": "Jerome",
+      "last-name": "Howard"
+    }
+    // toString constructor 
+    // Object原型对象的方法
+    // 每个对象都会有一个原型对象， 认就是object
+    // 原型对象 继承关系 对象
+    // 引用 两个对象 
+    // console.log(stooge.toString());
+    // 将对象作为原型对象，生成一个新的对象
+    // alert('IE bad');
+
+    var anthor_stooge = 
+      Object.create(stooge); //生华
+    // console.log(anthor_stooge);
+    anthor_stooge.hasGirlFriend = false;
+    alert(stooge.hasGirlFriend);
+    for (key in anthor_stooge) {
+      // 是否是自身的属性
+      if (anthor_stooge.hasOwnProperty(key)) {
+        console.log(key);
+        console.log(anthor_stooge[key]);
+      }
+      // console.log(key);
+      // console.log(anthor_stooge[key]);
+    }
+    console.log(
+      anthor_stooge
+        .hasOwnProperty('constructor'));
+    console.log(
+      anthor_stooge
+        .hasOwnProperty('toString'));
+    console.log(
+      anthor_stooge
+        .hasOwnProperty('first-name'));
+    // js 动态属性
+    stooge.city = '南昌';
+    console.log(anthor_stooge.city);
+    delete stooge.city;
+    console.log(stooge);
+    // var name = stooge["first-name"] + 
+    // stooge["last-name"];
+    // console.log(name);
+    // var x = stooge;
+    // x.sex = '男';
+    // console.log(stooge);
+  </script>
+</body>
+</html>

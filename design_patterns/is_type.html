@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>type 判断</title>
+</head>
+<body>
+  <script>
+  //   var obj = {"name": "ysw"};
+  //   // [object Object]
+  //   // Object是obj原型对象
+  //   var arr = ['1','2'];
+  //   var func = function() {};
+  //   console.log(obj.toString());
+  //   console.log(arr.toString());
+  //   console.log(func.toString());
+  //   var num = 123;
+  //   console.log(num.toString());
+  //   // [object Object]
+  //   // 我要判断num 是数值类型怎么办？
+  //   console.log(typeof num);
+  //   console.log(typeof arr);
+  //   console.log(
+  //     Object.prototype.toString.call(arr)
+  //   );
+  //   console.log(
+  //     Object.prototype.toString.call(func)
+  //   );
+  //   console.log(Object.prototype.toString.call(
+  //     num
+  //   ));
+  //   console.log(Object.prototype.toString.call(
+  //     "abc"
+  //   ));
+  //   console.log(Object.prototype.toString.call(
+  //     true
+  //   ));
+  //   console.log(Object.prototype.toString.call(
+  //     undefined
+  //   ));
+  //   console.log(Object.prototype.toString.call(
+  //     null
+  //   ));
+  //   // if (type(arr) == 'Array') {
+  //   //   console.log('这是一个数组');
+  //   // }
+  //   // 判断是否为某种类型
+  //   // 封装 函数数语议化
+  //   // 参数 obj :any
+  //   // 结果  true/false 
+  //  var isArray = function(obj) {
+  //   return Object.prototype.toString.call(obj)
+  //      === '[object Array]';
+  //  }
+  // var isFunction = function(obj) {
+  //         return Object.prototype.toString.call(obj) === '[object Function]';
+  //     }
+  //   var isNumber = function(obj) {
+  //           return Object.prototype.toString.call(obj) === '[object Number]';
+  //       }
+  //   var isBoolean = function(obj) {
+  //           return Object.prototype.toString.call(obj) === '[object Boolean]';
+  //       }
+  //    var isString = function(obj) {
+  //           return Object.prototype.toString.call(obj) === '[object String]';
+  //       };
+  // //  console.log(isArray("11"));
+  // //  if (isArray(arr)) {
+  // //   arr.push('aa');
+  // //  }
+  // var Type = {
+  //   isArray: function(obj) {
+  //     return Object.prototype.toString.call(obj)
+  //       === '[object Array]';
+  //   },
+  //   isFunction: function(obj) {
+  //       return Object.prototype.toString.call(obj) === '[object Function]';
+  //   },
+  //   isNumber: function(obj) {
+  //       return Object.prototype.toString.call(obj) === '[object Number]';
+  //   },
+  //   isBoolean: function(obj) {
+  //       return Object.prototype.toString.call(obj) === '[object Boolean]';
+  //   },
+  //   isString: function(obj) {
+  //       return Object.prototype.toString.call(obj) === '[object String]';
+  //   },
+  //   isObject: function(obj) {
+  //     return obj.toString() 
+  //       === '[object object]';
+  //   }
+  // } 
+  // // console.log(Type.isArray(arr));
+  // var key = 'Array';
+  // Type["is" + key] = 'fdfdf';
+  // let 作级作用域
+  // [object XXX]
+  // // var type = 1;
+  var Type = {};
+  for (let i = 0, type;
+  type=['String', 'Array', 'Function',
+   'Number', 'Boolean'][i++];) {
+    // console.log(i, type);
+    // 异步
+    Type['is' + type] = function(obj) {
+      return Object.prototype
+        .toString.call(obj) === '[object ' + type + ']';
+    }
+  }
+  console.log(Type.isArray([1,2,3]));
+  </script>
+</body>
+</html>

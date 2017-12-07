@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>let 块级作用域</title>
+</head>
+<body>
+  <a href="javascript:;" class="btn" data-index="1">按钮1</a>
+  <a href="javascript:;" class="btn" data-index="2">按钮2</a>
+  <a href="javascript:;" class="btn" data-index="3">按钮3</a>
+  <a href="javascript:;" class="btn" data-index="4">按钮4</a>
+  <a href="javascript:;" class="btn" data-index="5">按钮5</a>
+  <a href="javascript:;" class="btn" data-index="6">按钮6</a>
+  <a href="javascript:;" class="btn" data-index="7">按钮7</a>
+  <a href="javascript:;" class="btn" data-index="8">按钮8</a>
+  <a href="javascript:;" class="btn" data-index="9">按钮9</a>
+  <a href="javascript:;" class="btn" data-index="10">按钮10</a>
+  <script>
+    const arrBtn =
+     document.querySelectorAll('.btn');
+    
+    for ( let i = 0, len = arrBtn.length;
+     i < len; i++) {
+      // 代码同步,事件执行异步 
+      // i 块级作用域有关
+      // 一个i 十个i
+      // 变量的查找有关
+      arrBtn[i].addEventListener('click',
+        function(){
+          // 作用域内查找 函数就在块级作用域内
+          // 变量查找，有一个作用域
+          // 函数作用域 let 块级作用域
+          alert(i);
+      }, false);
+    }
+  </script>
+</body>
+</html>

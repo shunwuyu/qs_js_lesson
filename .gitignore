@@ -1,2 +1,3 @@
 /node_modules/
 ./es6/node_modules/
+./GraphQL/helloworld/node_modules/*

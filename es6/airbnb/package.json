@@ -1,11 +1,18 @@
 {
+<<<<<<< HEAD
   "name": "airbnb",
   "version": "1.0.0",
   "description": "",
+=======
+  "name": "es6-airbnb",
+  "version": "0.1.0",
+  "description": "用于学习es6,练习airbnb规范",
+>>>>>>> master
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+<<<<<<< HEAD
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,5 +20,19 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-env": "^1.6.1"
+=======
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shunwuyu/qs_js_lesson.git/es6/airbnb"
+  },
+  "keywords": [
+    "es6",
+    "airbnb"
+  ],
+  "author": "shunwuyu",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-airbnb": "^2.4.0"
+>>>>>>> master
   }
 }

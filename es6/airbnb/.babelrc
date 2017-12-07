@@ -1,9 +1,16 @@
 {
+<<<<<<< HEAD
   //从env 讲到airbnb 
   "presets": [["airbnb", {
     "targets": {
       // "chrome": 50  //let
       "explorer": 6  // var
+=======
+  "presets": [["airbnb", {
+    "targets": {
+      // "explorer": 6
+      "chrome": 50
+>>>>>>> master
     }
   }]]
 }

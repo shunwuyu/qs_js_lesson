@@ -7,16 +7,25 @@
   <title>本地存储</title>
 </head>
 <body>
+<<<<<<< HEAD
   <table>
     <thead>
       <tr>
         <th>姓名</th>
         <th>性别</th>
+=======
+  <table id="student_infos">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>学校</th>
+>>>>>>> master
       </tr>
     </thead>
     <tbody>
     </tbody>
   </table>
+<<<<<<< HEAD
   <br>
   <form name="userForm" action=""
    method="GET">
@@ -65,6 +74,96 @@
         `).join('')
       }
     }
+=======
+  <form action="index.php"
+   mthod="POST" name="userForm">
+    <div class="field">
+      <label for="user-name">姓名</label>
+      <input type="text" name="username"
+       id="user-name"/>
+    </div>
+    <div class="field">
+      <label for="user-college">学校</label>
+      <input type="text" 
+      name="college" id="user-college"/>
+    </div>
+    <input type="submit"
+     value="提交" />
+  </form>
+  <script>
+    const oForm = document.forms["userForm"];
+    const oUserName = oForm["username"];
+    const oCollege = oForm["college"];
+    const arrStudents = [];
+
+    console.log(oForm);
+    // fileusername=&college=:///lesson/qs_js_lesson/yuya/
+    // index.php?
+    window.onload = function() {
+      loadData();
+      oForm.addEventListener('submit', function(event){
+        // alert('提交了表单');
+        event.preventDefault();
+        let name = oUserName.value.trim();
+        let college = oCollege.value.trim();
+        if (name.length >= 2 && college) {
+          // 显示到页面上
+          const student = {
+            name,
+            college
+          }
+          // console.log(student);
+          // console.log(JSON.stringify(student));
+          arrStudents.push(student);
+
+          localStorage.setItem(
+            'students',JSON.stringify(arrStudents));
+          // ？ 分开存？
+          renderStudent(student);
+        } else {
+          alert('请输入用户名或学校');
+        }
+      }, false);
+    }
+
+    function loadData() {
+      // 存储里面有数据吗？
+      let storStudent = 
+        JSON.parse(localStorage.getItem('students'));
+      // console.log(storStudent);
+      console.log(storStudent);
+      storStudent.forEach(student => {
+        arrStudents.push(student);
+      })
+      // arrStudents = storStudent;
+      if (storStudent) {
+        storStudent.map(student => {
+          renderStudent(student);
+        });
+      } else {
+        document.querySelector('#student_infos tbody')
+          .innerHTML = `
+            <tr>
+              <td colspan="2" 
+              style="text-align:center;">当前没有数据</td>
+            </tr>
+          `;
+      }
+      
+    }
+
+    function renderStudent(student) {
+      console.log(student);
+      let oTr = document.createElement('tr');
+      oTr.innerHTML = `
+        <td>${student.name}</td>
+        <td>${student.college}</td>
+      `;
+      document.querySelector('#student_infos tbody')
+        .appendChild(oTr);
+    }
+    
+>>>>>>> master
   </script>
 </body>
 </html>

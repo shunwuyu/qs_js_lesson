@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // https://blog.fundebug.com/2017/07/26/master_map_filter_by_hand_written/
 var arr = [2,4,6,8,10];
 // var filteredArr= [];
@@ -78,3 +79,14 @@ console.log(newArr1); // -> ['ghijkl', 'mnopuv']
 console.log(newArr2); // -> ['ghijkl', 'mnopuv']
 
 
+=======
+var myArr = [1,2,3];
+for(var index = 0, len = myArr.length; index < len; index++) {
+  console.log(myArr[index]);
+}
+
+// forEach
+myArray.forEach(function(value) {
+  console.log(value);
+})
+>>>>>>> master
