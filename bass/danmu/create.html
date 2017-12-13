@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery</title>
+  <style>
+    html,
+     img, 
+     div, 
+     li, 
+     ul, span, em, a, i,
+    {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+  </style>
+</head>
+<body>
+  <img src="http://29e5534ea20a8.cdn.sohucs.com/c_zoom,h_213/c_cut,x_0,y_6,w_600,h_400/os/news/2e24b762ab51921380044aec6a6def6d.jpg" alt="">
+  <ul class="news-list">
+
+  </ul>
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+  <script>
+  // window.onload 不是最佳时机
+  // 慢了 dom ready 
+  // $ css queryselector
+  // $ 传入函数 dom ready 
+  // $ 
+  // dom ready 兼容性
+  $(function() {
+    // 从上到下 炫染dom树
+    // css 显示到结点  node 
+    // 结点， 文本结点
+    // css  head 
+    // link href http请求 
+    // 阻塞下载 html 不会阻script
+    // script 阻塞 
+      
+    // dom ready > window onscroll> 
+    // window onload(content loaded)
+    // 图片资源 静态资源 flash 
+    const news = [
+      {
+        url: 'http://www.baidu.com',
+        title: '江歌案'
+      },
+      {
+        url: 'http://sohu.com',
+        title: '三胖白头山'
+      }
+    ];
+
+    news.map(item => {
+      let $li = $("<li/>");
+      $li.html(item.title);
+      // 闭包
+      $li.click(() => {
+        location.href = item.url;
+      })
+      $li.appendTo($('.news-list'));
+      // jQuery封装好的dom node 
+      // li 事件？  
+      
+    }).join('')
+
+  })
+  </script>
+</body>
+</html>
