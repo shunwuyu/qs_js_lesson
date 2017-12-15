@@ -73,6 +73,21 @@ let ecDo = {
     return arr.sort(() => {
       return Math.random() - 0.5
     });
+  },
+  maxArr (arr) {
+    return Math.max.apply(null, arr);
+  },
+  minArr(arr) {
+    return Math.min.apply(null, arr);
+  },
+  sumArr(arr) {
+    return arr.reduce((pre, cur) => pre + cur);
+  },
+  covArr(arr) {
+    return this.sumArr(arr)/arr.length;
+  },
+  randomOne(arr) {
+    return arr[Math.floor(Math.random()*arr.length)];
   }
 }
 
