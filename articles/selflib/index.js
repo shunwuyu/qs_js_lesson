@@ -60,13 +60,28 @@ let ecDo = {
   },
   randomColor() {
     return '#' + Math.random().toString(16).substring(2).substr(0, 6)
+  },
+  removeRepeatArray(arr) {
+    // return arr.filter((item, index, self) => {
+    //   return self.indexOf(item) === index;
+    // });
+    // 聊聊去重
+    return [...new Set(arr)];
+  },
+  // 顺序打乱
+  upsetArr (arr) {
+    return arr.sort(() => {
+      return Math.random() - 0.5
+    });
   }
 }
 
-console.log(ecDo.trim("  mel  ody  ", 1));
-console.log(ecDo.trim("  mel  ody  ", 2))
-console.log(ecDo.trim("  mel  ody  ", 3).length);
-console.log(ecDo.trim("  mel  ody  ", 4));
-console.log(ecDo.randomNumber(1,7));
-console.log(ecDo.randomNumber(99));
-console.log(ecDo.randomNumber());
+console.log(ecDo.upsetArr([1,2,3,4,5,6,7,8,9]));
+console.log(ecDo.removeRepeatArray(['a','b', 'a', 'c']));
+// console.log(ecDo.trim("  mel  ody  ", 1));
+// console.log(ecDo.trim("  mel  ody  ", 2))
+// console.log(ecDo.trim("  mel  ody  ", 3).length);
+// console.log(ecDo.trim("  mel  ody  ", 4));
+// console.log(ecDo.randomNumber(1,7));
+// console.log(ecDo.randomNumber(99));
+// console.log(ecDo.randomNumber());
